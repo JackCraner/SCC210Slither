@@ -1,7 +1,6 @@
 package de.mat2095.my_slither;
 
 import static de.mat2095.my_slither.MySlitherModel.PI2;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -548,6 +547,7 @@ final class MySlitherWebSocketClient extends WebSocketClient {
             double sp = ((data[12] << 8) | data[13]) / 1000.0;
             double fam = ((data[14] << 16) | (data[15] << 8) | data[16]) / ANGLE_CONSTANT;
 
+            int skinID = data[17];
             double x = ((data[18] << 16) | (data[19] << 8) | data[20]) / 5.0;
             double y = ((data[21] << 16) | (data[22] << 8) | data[23]) / 5.0;
 
@@ -558,7 +558,7 @@ final class MySlitherWebSocketClient extends WebSocketClient {
             }
 
             int customSkinDataLength = data[nameLength + 25];
-
+            
             double currentBodyPartX = ((data[nameLength + customSkinDataLength + 26] << 16) | (data[nameLength + customSkinDataLength + 27] << 8) | data[nameLength + customSkinDataLength + 28]) / 5.0;
             double currentBodyPartY = ((data[nameLength + customSkinDataLength + 29] << 16) | (data[nameLength + customSkinDataLength + 30] << 8) | data[nameLength + customSkinDataLength + 31]) / 5.0;
 
@@ -571,7 +571,7 @@ final class MySlitherWebSocketClient extends WebSocketClient {
                 body.addFirst(new SnakeBodyPart(currentBodyPartX, currentBodyPartY));
             }
 
-            model.addSnake(id, name.toString(), x, y, wang, ang, sp, fam, body);
+            model.addSnake(id, name.toString(),  skinID,x, y, wang, ang, sp, fam, body);
         } else if (data.length == 6) {
             int id = (data[3] << 8) | (data[4]);
             model.removeSnake(id);
