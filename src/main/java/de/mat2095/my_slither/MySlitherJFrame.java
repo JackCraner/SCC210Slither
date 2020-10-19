@@ -14,8 +14,11 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
+// Edits: added action listener
+import java.awt.event.ActionListener;
 
-final class MySlitherJFrame extends JFrame {
+
+final class MySlitherJFrame extends JFrame implements ActionListener{
 
     private static final String[] SNAKES = {
         "00 - purple",
@@ -209,11 +212,12 @@ final class MySlitherJFrame extends JFrame {
         settings.add(snake,
             new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
 
-        // Edits: added theme label JComboBox
+        // Edits: added theme label JComboBox and the action listener to the combo box
         settings.add(new JLabel("theme:"),
             new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.EAST, GridBagConstraints.NONE, new Insets(2, 2, 2, 2), 0, 0));
         settings.add(theme,
             new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
+        theme.addActionListener(this);
             
         settings.add(useRandomServer,
             new GridBagConstraints(2, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(2, 2, 2, 2), 0, 0));
@@ -470,4 +474,10 @@ final class MySlitherJFrame extends JFrame {
             this.allowModifyData = allowModifyData;
         }
     }
+
+    // Edits added what will happen in the case of an event
+    public void actionPerformed(ActionEvent e){
+        System.out.println("Boop");
+    }
+
 }
