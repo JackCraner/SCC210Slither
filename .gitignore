@@ -1,0 +1,9 @@
+# class files
+*.class
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+*.bin
+hs_err_pid*
+
