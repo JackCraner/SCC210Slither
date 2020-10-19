@@ -85,6 +85,13 @@ final class MySlitherJFrame extends JFrame {
         "64 - blue/black"
     };
 
+    // Edits: list of theames
+    private static String[] listTheames = {
+        "00 - Defult",
+        "01 - Light"
+    };
+
+
     // TODO: skins, prey-size, snake-length/width, bot-layer, that-other-thing(?), show ping
 
     private final JTextField server, name;
@@ -97,6 +104,10 @@ final class MySlitherJFrame extends JFrame {
     private final JScrollBar logScrollBar;
     private final JTable highscoreList;
     private final MySlitherCanvas canvas;
+
+    // Edits: adding combo box for the theame
+    private JComboBox<String> theame;
+
 
     private final long startTime;
     private final Timer updateTimer;
@@ -140,6 +151,11 @@ final class MySlitherJFrame extends JFrame {
 
         snake = new JComboBox<>(SNAKES);
         snake.setMaximumRowCount(snake.getItemCount());
+
+        // Edits: initlize the combo box
+        theame = new JComboBox<>(listTheames);
+        theame.setMaximumRowCount(theame.getItemCount());
+
 
         useRandomServer = new JCheckBox("use random server", true);
         useRandomServer.addActionListener(a -> {
