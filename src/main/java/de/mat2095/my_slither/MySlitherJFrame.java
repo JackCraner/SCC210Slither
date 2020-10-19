@@ -14,6 +14,7 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
+
 // Edits: added action listener
 import java.awt.event.ActionListener;
 
@@ -109,6 +110,8 @@ final class MySlitherJFrame extends JFrame implements ActionListener{
     private final JScrollBar logScrollBar;
     private final JTable highscoreList;
     private final MySlitherCanvas canvas;
+    private final JScrollPane logScrollPane;
+
 
     // Edits: adding combo box for the theme
     private JComboBox<String> theme;
@@ -285,7 +288,8 @@ final class MySlitherJFrame extends JFrame implements ActionListener{
         rightSplitPane.setDividerSize(rightSplitPane.getDividerSize() * 4 / 3);
         rightSplitPane.setResizeWeight(0.99);
 
-        JScrollPane logScrollPane = new JScrollPane(log);
+        logScrollPane = new JScrollPane(log);
+
         logScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         logScrollPane.setPreferredSize(new Dimension(300, logScrollPane.getPreferredSize().height));
         logScrollBar = logScrollPane.getVerticalScrollBar();
@@ -322,6 +326,11 @@ final class MySlitherJFrame extends JFrame implements ActionListener{
     void onOpen() {
         switch (status) {
             case CONNECTING:
+            
+                // On connection log and the scroll pannel are hidden.
+                log.setVisible(false);
+                logScrollPane.setVisible(false);
+
                 setStatus(Status.CONNECTED);
                 client.sendInitRequest(snake.getSelectedIndex(), name.getText());
                 break;
@@ -337,6 +346,12 @@ final class MySlitherJFrame extends JFrame implements ActionListener{
         switch (status) {
             case CONNECTED:
             case DISCONNECTING:
+
+                // On disconnection log and the scroll pannel are shown again .
+                log.setVisible(true);
+                logScrollPane.setVisible(true);
+                logScrollBar.setSize(300, logScrollPane.getPreferredSize().height);
+
                 setStatus(Status.DISCONNECTED);
                 client = null;
                 break;
