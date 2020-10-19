@@ -85,8 +85,8 @@ final class MySlitherJFrame extends JFrame {
         "64 - blue/black"
     };
 
-    // Edits: list of theames
-    private static String[] listTheames = {
+    // Edits: list of themes
+    private static String[] listThemes = {
         "00 - Defult",
         "01 - Light"
     };
@@ -105,8 +105,8 @@ final class MySlitherJFrame extends JFrame {
     private final JTable highscoreList;
     private final MySlitherCanvas canvas;
 
-    // Edits: adding combo box for the theame
-    private JComboBox<String> theame;
+    // Edits: adding combo box for the theme
+    private JComboBox<String> theme;
 
 
     private final long startTime;
@@ -153,8 +153,8 @@ final class MySlitherJFrame extends JFrame {
         snake.setMaximumRowCount(snake.getItemCount());
 
         // Edits: initlize the combo box
-        theame = new JComboBox<>(listTheames);
-        theame.setMaximumRowCount(theame.getItemCount());
+        theme = new JComboBox<>(listThemes);
+        theme.setMaximumRowCount(theme.getItemCount());
 
 
         useRandomServer = new JCheckBox("use random server", true);
