@@ -20,8 +20,8 @@ final class MySlitherCanvas extends JPanel {
 
     private static final Color BACKGROUND_COLOR = new Color(0x2B2B2B);
     private static final Color FOREGROUND_COLOR = new Color(0xA9B7C6);
-    private static final Color SECTOR_COLOR = new Color(0x803C3F41, true);
-    private static final Color FOOD_COLOR = new Color(0xCC7832);
+    private Color SECTOR_COLOR = new Color(0x803C3F41, true);
+    private Color FOOD_COLOR = new Color(0xCC7832);
     private static final Color PREY_COLOR = new Color(0xFFFF00);
     private static final float[] PREY_HALO_FRACTIONS = new float[]{0.5f, 1f};
     private static final Color[] PREY_HALO_COLORS = new Color[]{new Color(0x60FFFF00, true), new Color(0x00FFFF00, true)};
@@ -125,10 +125,24 @@ final class MySlitherCanvas extends JPanel {
     // Edit: method to change the theme
     void changeTheme(int themeIndex){
         if(themeIndex == 0){
-            this.setBackground(new Color(0x2B2B2B));
+            this.setBackground(BACKGROUND_COLOR);
+            this.FOOD_COLOR = new Color(0xCC7832);
+            this.SECTOR_COLOR = new Color(0x803C3F41, true);
         }
-        else if(themeIndex == 1){
+        if(themeIndex == 1){
             this.setBackground(new Color(0xffffff));
+            this.FOOD_COLOR = new Color(0x00ff00);
+            this.SECTOR_COLOR = new Color(0x11221105, true);
+        }
+        if(themeIndex == 2){
+            this.setBackground(new Color(0x000032));
+            this.FOOD_COLOR = new Color(0x3500d3);
+            this.SECTOR_COLOR = new Color(0x803C3F41, true);
+        }
+        if(themeIndex == 3){
+            this.setBackground(new Color(0x8ee4af));
+            this.FOOD_COLOR = new Color(0x379683);
+            this.SECTOR_COLOR = new Color(0x88889911, true);
         }
     }
 
