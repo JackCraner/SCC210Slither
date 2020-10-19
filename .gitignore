@@ -6,4 +6,9 @@
 *.ear
 *.bin
 hs_err_pid*
-
+*.classpath
+*.lock
+*.properties
+*.project
+*.prefs
+*mapping.txt
