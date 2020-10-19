@@ -122,6 +122,16 @@ final class MySlitherCanvas extends JPanel {
         repaintThread.scheduleAtFixedRate(this::repaint, 1, repaintDelay, TimeUnit.NANOSECONDS);
     }
 
+    // Edit: method to change the theme
+    void changeTheme(int themeIndex){
+        if(themeIndex == 0){
+            this.setBackground(new Color(0x2B2B2B));
+        }
+        else if(themeIndex == 1){
+            this.setBackground(new Color(0xffffff));
+        }
+    }
+
     void setMap(boolean[] map) {
         this.map = map;
     }

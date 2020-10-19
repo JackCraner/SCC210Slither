@@ -90,7 +90,7 @@ final class MySlitherJFrame extends JFrame implements ActionListener{
 
     // Edits: list of themes
     private static String[] listThemes = {
-        "00 - Defult",
+        "00 - Default",
         "01 - Light"
     };
 
@@ -477,7 +477,7 @@ final class MySlitherJFrame extends JFrame implements ActionListener{
 
     // Edits added what will happen in the case of an event
     public void actionPerformed(ActionEvent e){
-        System.out.println("Boop");
+        canvas.changeTheme(theme.getSelectedIndex());
     }
 
 }
