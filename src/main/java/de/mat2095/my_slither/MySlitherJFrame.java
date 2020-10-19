@@ -91,7 +91,9 @@ final class MySlitherJFrame extends JFrame implements ActionListener{
     // Edits: list of themes
     private static String[] listThemes = {
         "00 - Default",
-        "01 - Light"
+        "01 - Light",
+        "02 - Blue",
+        "03 - Green"
     };
 
 
