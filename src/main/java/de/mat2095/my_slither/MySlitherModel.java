@@ -171,9 +171,9 @@ class MySlitherModel {
         }
     }
 
-    void addSnake(int snakeID, String name, double x, double y, double wang, double ang, double sp, double fam, Deque<SnakeBodyPart> body) {
+    void addSnake(int snakeID, String name, int skinID, double x, double y, double wang, double ang, double sp, double fam, Deque<SnakeBodyPart> body) {
         synchronized (view.modelLock) {
-            Snake newSnake = new Snake(snakeID, name, x, y, wang, ang, sp, fam, body, this);
+            Snake newSnake = new Snake(snakeID, name, skinID, x, y, wang, ang, sp, fam, body, this);
             if (snake == null) {
                 snake = newSnake;
             }

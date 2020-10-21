@@ -1,5 +1,4 @@
 package de.mat2095.my_slither;
-
 import java.util.Deque;
 
 
@@ -12,10 +11,11 @@ class Snake {
     double wang, ang;
     double sp, tsp;
     private double fam;
+    private int skinID;
     final Deque<SnakeBodyPart> body;
     private final MySlitherModel model;
 
-    Snake(int id, String name, double x, double y, double wang, double ang, double sp, double fam, Deque<SnakeBodyPart> body, MySlitherModel model) {
+    Snake(int id, String name,int skinID, double x, double y, double wang, double ang, double sp, double fam, Deque<SnakeBodyPart> body, MySlitherModel model) {
         this.id = id;
         this.name = name;
         this.x = x;
@@ -28,6 +28,7 @@ class Snake {
         this.fam = fam;
         this.body = body;
         this.model = model;
+        this.skinID = skinID;
     }
 
     private double getSc() {
@@ -56,5 +57,10 @@ class Snake {
 
     void setFam(double fam) {
         this.fam = fam;
+    }
+
+    public int getSkinID()
+    {
+        return skinID;
     }
 }
